@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Коньяк и арманьяк</title>
+  <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/draggabilly.pkgd.min.js"></script>
+  <script src="js/db.js"></script>
+</head>
+<body>
+<div class="ave">
+  <div class="ave__title">Введите email</div>
+  <input type="email" maxlength="40" autocomplete="off" onkeyup="checkValidate(this)" autofocus class="ave__input">
+  <div class="ave__button button" onclick="logIn()">Продолжить</div>
+</div>
+<div class="header">
+  <div class="header__menu" onclick="toggleHamburger()"></div>
+  <div class="header__title">Правда или Ложь</div>
+</div>
+<div class="main">
+    <div class="task">
+        <div class="lock hidden" style="z-index: 3"></div>
+        <div class="info" style="z-index: 2">
+            <div class="info__title">Прочитайте утверждение о том, в каком случае бренди можно называть Коньяком. Если оно правильное, отнесите его к категории “правда”, если нет – категории “ложь”.</div>
+            <div onclick="startInfo(this)" class="info__button button">Понятно!</div>
+        </div>
+        <div class="task__page win left" style="z-index: 1">
+            <div class="win__grid">
+                <div class="win__d"></div>
+                <div class="win__button">
+                    <div class="win__country" onclick="winChoose(0)" style="background-image: url('img/checked.svg')"></div>
+                    <div class="win__country" onclick="winChoose(1)" style="background-image: url('img/cancel.svg')"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="task hidden">
+        <div class="lock hidden" style="z-index: 3"></div>
+        <div class="info" style="z-index: 2">
+            <div class="info__title">Расставьте в правильном порядке этапы производства Коньяка.</div>
+            <div onclick="startInfo(this)" class="info__button button">Понятно!</div>
+        </div>
+        <div class="task__page y left" style="z-index: 1">
+            <div class="y__grid">
+                <div class="y__movebox">
+                    <div class="y__move" style="top: 0">Получение коньячного спирта</div>
+                    <div class="y__move" style="top: 60px">Доставка винограда</div>
+                    <div class="y__move" style="top: 120px">Фильтрование</div>
+                    <div class="y__move" style="top: 180px">Брожение</div>
+                    <div class="y__move" style="top: 240px">Розлив</div>
+                    <div class="y__move" style="top: 300px">Выдержка в дубовых бочках</div>
+                    <div class="y__move" style="top: 360px">Купажирование</div>
+                    <div class="y__move" style="top: 420px">Получение сусла</div>
+                </div>
+            </div>
+            <div class="button" onclick="scoreButton(1);sortYScore()">Нажмите для завершения!</div>
+        </div>
+    </div>
+  
+  <!-- вставить задания -->
+  
+  <div class="task hidden">
+    <div class="lock hidden"></div>
+    <div class="info">
+      <div class="info__title">Прочитайте внимательно вопрос. Дайте развёрнутый ответ в комментариях к уроку.</div>
+      <div onclick="startInfo(this)" class="info__button button">Понятно!</div>
+    </div>
+    <div class="task__page asked left">
+      <div class="asked__title"></div>
+      <div class=" button" onclick="endButton()">Дать ответ!</div>
+    </div>
+  </div>
+</div>
+<div class="footer"></div>
+<div class="menu menu__off">
+  <div class="menu__content"></div>
+</div>
+<script src="js/win.js"></script>
+<script src="js/sort_y.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
